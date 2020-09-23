@@ -29,24 +29,24 @@ const createCardHtml = (name, emoji, temp, feelsLike, description) => `
 
 // emojis object used to find the right emoji from the icon code sent from the api
 const emojis = {
-	'01d': '☀️',
-	'02d': '⛅️',
-	'03d': '☁️',
-	'04d': '☁️',
-	'09d': '🌧',
-	'10d': '🌦',
-	'11d': '⛈',
-	'13d': '❄️',
-	'50d': '💨',
-	'01n': '☀️',
-	'02n': '⛅️',
-	'03n': '☁️',
-	'04n': '☁️',
-	'09n': '🌧',
-	'10n': '🌦',
-	'11n': '⛈',
-	'13n': '❄️',
-	'50n': '💨',
+  '01d': '☀️',
+  '02d': '⛅️',
+  '03d': '☁️',
+  '04d': '☁️',
+  '09d': '🌧',
+  '10d': '🌦',
+  '11d': '⛈',
+  '13d': '❄️',
+  '50d': '💨',
+  '01n': '☀️',
+  '02n': '⛅️',
+  '03n': '☁️',
+  '04n': '☁️',
+  '09n': '🌧',
+  '10n': '🌦',
+  '11n': '⛈',
+  '13n': '❄️',
+  '50n': '💨',
 };
 
 // selecting all the things needed
@@ -56,23 +56,23 @@ const weatherContainer = document.querySelector('#weather-container');
 
 // event listener for a click event on the "Go!" button
 goButton.addEventListener('click', () => {
-	// get the city from the input field
-	const city = cityInput.value;
+  // get the city from the input field
+  const city = cityInput.value;
 
-	// get the weather data for the city
-	getDataForCity(city)
-		.then(data => {
-			// get the data we need for our html from the response
-			const name = data.name;
-			const emoji = emojis[data.weather[0].icon];
-			const temp = data.main.temp;
-			const feelsLike = data.main.feels_like;
-			const description = data.weather[0].description;
+  // get the weather data for the city
+  getDataForCity(city)
+    .then(data => {
+      // get the data we need for our html from the response
+      const name = data.name;
+      const emoji = emojis[data.weather[0].icon];
+      const temp = data.main.temp;
+      const feelsLike = data.main.feels_like;
+      const description = data.weather[0].description;
 
-			// create the card html
-			const cardHtml = createCardHtml(name, emoji, temp, feelsLike, description);
+      // create the card html
+      const cardHtml = createCardHtml(name, emoji, temp, feelsLike, description);
 
-			// render!
-			weatherContainer.innerHTML = cardHtml;
-		});
+      // render!
+      weatherContainer.innerHTML = cardHtml;
+    });
 });
